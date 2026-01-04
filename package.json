@@ -1,9 +1,9 @@
 {
-  "name": "template-4-me",
-  "version": "1.0.0",
-  "description": "Basic template boilerplate",
+  "name": "simpleWeather",
+  "version": "0.0.1",
+  "description": "App for simple weather data displaying",
   "main": "index.js",
-  "private": true,
+  "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
@@ -17,8 +17,8 @@
     "type": "git",
     "url": "git+https://github.com/SapphicBear/template-4-me.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["Weather", "Location", "API-learning", "API"],
+  "author": "SapphicBear",
   "license": "MIT",
   "type": "module",
   "bugs": {
