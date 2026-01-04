@@ -1,9 +1,25 @@
 {
-  "name": "simpleWeather",
+  "name": "simpleweather",
   "version": "0.0.1",
-  "description": "App for simple weather data displaying",
-  "main": "index.js",
   "private": false,
+  "description": "App for simple weather data displaying",
+  "keywords": [
+    "Weather",
+    "Location",
+    "API-learning",
+    "API"
+  ],
+  "homepage": "https://github.com/SapphicBear/template-4-me#readme",
+  "bugs": {
+    "url": "https://github.com/SapphicBear/template-4-me/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SapphicBear/template-4-me.git"
+  },
+  "license": "MIT",
+  "author": "SapphicBear",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
@@ -13,18 +29,6 @@
     "check": "prettier ./src --check",
     "lint": "eslint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SapphicBear/template-4-me.git"
-  },
-  "keywords": ["Weather", "Location", "API-learning", "API"],
-  "author": "SapphicBear",
-  "license": "MIT",
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/SapphicBear/template-4-me/issues"
-  },
-  "homepage": "https://github.com/SapphicBear/template-4-me#readme",
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "css-loader": "^7.1.2",
@@ -39,5 +43,8 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2",
     "webpack-merge": "^6.0.1"
+  },
+  "dependencies": {
+    "util": "^0.12.5"
   }
 }
