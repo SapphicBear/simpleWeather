@@ -13,11 +13,7 @@ module.exports = {
             template: "./src/index.html",
         }),
     ],
-    resolve: {
-        fallback: {
-            util: require.resolve("util/"),
-        },
-    },
+    
     module: {
         rules: [
             {

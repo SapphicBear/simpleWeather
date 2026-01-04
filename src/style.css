@@ -1,33 +1,46 @@
 :root {
-    line-height: 1.5;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    box-sizing: border-box;
-    --main-text-dark: rgb(18, 0, 51);
-    --main-text-light: rgb(100, 71, 233);
-    --sec-text-dark: rgb(88, 0, 53);
-    --sec-text-light: rgb(255, 43, 202);
-    --default-white: rgb(243, 246, 255)(255, 241, 241);
-    --highlight: rgb(255, 177, 88);
-    --border-radius: 15px;
-    --border-size: 2.5px;
-    --box-shadow: 0 10px 10px;
-    --box-highlight: 10px 0 10px;
+  line-height: 1.5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+  --main-text-dark: rgb(18, 0, 51);
+  --main-text-light: rgb(100, 71, 233);
+  --sec-text-dark: rgb(88, 0, 53);
+  --sec-text-light: rgb(255, 43, 202);
+  --default-white: rgb(243, 246, 255) (255, 241, 241);
+  --highlight: rgb(255, 177, 88);
+  --border-radius: 15px;
+  --border-size: 2.5px;
+  --box-shadow: 0 10px 10px;
+  --box-highlight: 10px 0 10px;
 }
 /* resets: */
-body, 
-h1, h2, h3, h4, h5,
-p, div, span, 
-li, ul, ol, a, button,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+div,
+span,
+li,
+ul,
+ol,
+a,
+button,
 input {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
-li, ul, ol {
-    list-style: none;
+li,
+ul,
+ol {
+  list-style: none;
 }
-input, button, form {
-    font-family: inherit;
+input,
+button,
+form {
+  font-family: inherit;
 }
 
 /* global shared styles: */
-
