@@ -1,33 +1,35 @@
 import "./style.css";
-
 console.log("Javascript connected from Index.js");
+
 let temperatureUnit = "unitGroup=uk";
-let userInput = () => {
+
+const userInput = () => {
     let value = document.getElementById("search-bar").value;
     if (value.length <= 0) {
         value = "";
     }
     return value;
 };
+
 const searchButton = document.querySelector(".search-button");
 
 searchButton.addEventListener("click", () => {
     dataHandler()
         .then((data) => {
             console.log(data)
-            samplePrint(data.description);
+            samplePrint(data);
         }).catch((error) => {
-            console.log(error)
-            samplePrint(error)
+            console.log(error);
+            samplePrint(error);
         })
     
     
 });
 
 function dataHandler() {
-    let value = userInput();
-    let formatedInput = formatInput(value);
-    let finalURL = handleURL(formatedInput);
+    const value = userInput();
+    const formatedInput = formatInput(value);
+    const finalURL = handleURL(formatedInput);
     const weatherData = getWeatherData(finalURL);
     return weatherData;
     
@@ -45,21 +47,25 @@ function handleURL(input) {
 
 
 async function getWeatherData(address) {
-        const weatherData = await fetch(address)
-            .then((response) => {
-                return response;
-            }).catch((error) => {
-                throw new Error("Error fetching data from server!");
-            })
-        const data = await weatherData.json()
-            .then((data) => {
-                return data;
-            }).catch(() => {
-                throw new Error("Something went wrong!")
-            })
-        return data;
+    try {
+        const response = await fetch(address);
+            if (!response.ok) {
+                if (response.status == 400) {
+                    throw new Error(`Bad request: Status: ${response.status}`);
+                } 
+            } else {
+                const weatherData = await response.json();
+                return weatherData;
+            }
+    } catch (error) {
+        throw new Error(error.message);
+    }
+    
 }
 
 function samplePrint(data) {
-    document.querySelector(".information-body > p").textContent = data;
+    let [header, body, footer] = document.querySelectorAll(`.information > div > p[class*="text"]`);
+        header.textContent = `Location: ${data.resolvedAddress}`;
+        body.textContent = `Current conditions: ${data.description}`
+        footer.textContent = `Timezone: ${data.timezone}`;
 }
