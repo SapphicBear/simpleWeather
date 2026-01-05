@@ -3,6 +3,8 @@ console.log("Javascript connected from Index.js");
 
 // let units = ["uk", "us"];
 let temperatureUnit = "unitGroup=uk";
+const searchButton = document.querySelector(".search-button");
+const [header, body, footer] = document.querySelectorAll(`.information > div > p[class*="text"]`);
 
 const userInput = () => {
     let value = document.getElementById("search-bar").value;
@@ -11,8 +13,6 @@ const userInput = () => {
     }
     return value;
 };
-
-const searchButton = document.querySelector(".search-button");
 
 searchButton.addEventListener("click", () => {
     dataHandler()
@@ -61,7 +61,6 @@ async function getWeatherData(address) {
 }
 
 function samplePrint(data) {
-    let [header, body, footer] = document.querySelectorAll(`.information > div > p[class*="text"]`);
         header.classList.remove("error");
         header.textContent = `Location: ${data.resolvedAddress}`;
         body.textContent = `Current conditions: ${data.description}`
@@ -69,7 +68,6 @@ function samplePrint(data) {
 }
 
 function printError(err) {
-  let header = document.querySelector(".information-header.text-header");
   header.classList.add("error");
   header.textContent = err;
 }

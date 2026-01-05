@@ -6,7 +6,7 @@
   --main-text-light: rgb(100, 71, 233);
   --sec-text-dark: rgb(88, 0, 53);
   --sec-text-light: rgb(255, 43, 202);
-  --default-white: rgb(243, 246, 255) (255, 241, 241);
+  --default-white: rgb(243, 246, 255);
   --highlight: rgb(255, 177, 88);
   --border-radius: 15px;
   --border-size: 2.5px;
@@ -28,6 +28,9 @@ ul,
 ol,
 a,
 button,
+header,
+main,
+footer,
 input {
   padding: 0;
   margin: 0;
@@ -52,4 +55,25 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100dvh;
+}
+
+.wrapper {
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+  background: white;
+}
+header, main, footer {
+  place-self: center;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  width: 20rem;
+  background: var(--main-text-light);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 60ch;
+  text-shadow: var(--sec-text-dark) 0 2px 2px;
+  color: var(--default-white);
+  box-shadow: var(--box-shadow) var(--sec-text-dark);
 }
