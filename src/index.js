@@ -1,6 +1,7 @@
 import "./style.css";
 console.log("Javascript connected from Index.js");
 
+// let units = ["uk", "us"];
 let temperatureUnit = "unitGroup=uk";
 
 const userInput = () => {
@@ -20,10 +21,8 @@ searchButton.addEventListener("click", () => {
             samplePrint(data);
         }).catch((error) => {
             console.log(error);
-            samplePrint(error);
+            printError(error);
         })
-    
-    
 });
 
 function dataHandler() {
@@ -32,7 +31,6 @@ function dataHandler() {
     const finalURL = handleURL(formatedInput);
     const weatherData = getWeatherData(finalURL);
     return weatherData;
-    
 }
 function formatInput(input) {
     const final = input.replaceAll(/\s+/g, "%20");
@@ -60,12 +58,18 @@ async function getWeatherData(address) {
     } catch (error) {
         throw new Error(error.message);
     }
-    
 }
 
 function samplePrint(data) {
     let [header, body, footer] = document.querySelectorAll(`.information > div > p[class*="text"]`);
+        header.classList.remove("error");
         header.textContent = `Location: ${data.resolvedAddress}`;
         body.textContent = `Current conditions: ${data.description}`
         footer.textContent = `Timezone: ${data.timezone}`;
+}
+
+function printError(err) {
+  let header = document.querySelector(".information-header.text-header");
+  header.classList.add("error");
+  header.textContent = err;
 }

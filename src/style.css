@@ -44,3 +44,12 @@ form {
 }
 
 /* global shared styles: */
+
+body {
+  /* background gradient */
+  background: #3bb3e3;
+  background: linear-gradient(179deg,rgba(59, 179, 227, 1) 0%, rgba(87, 199, 133, 1) 56%, rgba(237, 221, 83, 1) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100dvh;
+}
