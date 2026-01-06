@@ -1,73 +1,36 @@
 import "./style.css";
+import { getData } from "./data.js";
+import { cacheDOM } from "./DOM.js";
+import { render } from "./render.js";
+
 console.log("Javascript connected from Index.js");
 
-// let units = ["uk", "us"];
-let temperatureUnit = "unitGroup=uk";
-const searchButton = document.querySelector(".search-button");
-const [header, body, footer] = document.querySelectorAll(`.information > div > p[class*="text"]`);
-
-const userInput = () => {
-    let value = document.getElementById("search-bar").value;
-    if (value.length <= 0) {
-        value = "";
+let DOM = cacheDOM();
+function convertUnit() {
+    let initial = getData.getTemp();
+    let unit;
+    if (initial === "uk") {
+        unit = "°C";
+    } else {
+        unit = "°F";
     }
-    return value;
-};
+    return unit;
+}
 
-searchButton.addEventListener("click", () => {
-    dataHandler()
+DOM.searchButton.addEventListener("click", () => {
+    getData.dataHandler()
         .then((data) => {
             console.log(data)
-            samplePrint(data);
+            render.samplePrint(data, DOM, convertUnit());
+            render.handleBackground(data, DOM);
         }).catch((error) => {
             console.log(error);
-            printError(error);
+            render.printError(error, DOM);
         })
 });
-
-function dataHandler() {
-    const value = userInput();
-    const formatedInput = formatInput(value);
-    const finalURL = handleURL(formatedInput);
-    const weatherData = getWeatherData(finalURL);
-    return weatherData;
-}
-function formatInput(input) {
-    const final = input.replaceAll(/\s+/g, "%20");
-    return final;
-}
-
-function handleURL(input) {
-    let location = input;
-    let address = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?${temperatureUnit}&key=GKAVBU9ZAHUA9UV25ESASX8UT&contentType=json`;
-    return address;
-}
+DOM.unitSelector.addEventListener("click", () => {
+    DOM.unitSelector.classList.toggle("inactive")
+    DOM.unitSelector.classList.toggle("active");
+})
 
 
-async function getWeatherData(address) {
-    try {
-        const response = await fetch(address);
-            if (!response.ok) {
-                if (response.status == 400) {
-                    throw new Error(`Bad request: Status: ${response.status}`);
-                } 
-            } else {
-                const weatherData = await response.json();
-                return weatherData;
-            }
-    } catch (error) {
-        throw new Error(error.message);
-    }
-}
-
-function samplePrint(data) {
-        header.classList.remove("error");
-        header.textContent = `Location: ${data.resolvedAddress}`;
-        body.textContent = `Current conditions: ${data.description}`
-        footer.textContent = `Timezone: ${data.timezone}`;
-}
-
-function printError(err) {
-  header.classList.add("error");
-  header.textContent = err;
-}

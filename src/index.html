@@ -8,7 +8,6 @@
     <script type="module" src="./index.js" defer></script>
   </head>
   <body>
-    <h1>Work in progress!</h1>
     <div class="wrapper">
       <header>
         <div class="search-area">
@@ -21,17 +20,25 @@
           />
           <button type="button" class="search-button">Search</button>
         </div>
+        <div class="temp-unit-switch">
+        <p class="unit">°C / °F</p>
+        <input type="checkbox" name="unit-choice" id="unit-choice" class="inactive">
+        <label for="unit-choice" class="switch"></label>
+      </div>
       </header>
       <main>
         <div class="information">
           <div class="information-header">
-            <p class="information-header text-header"></p>
+            <p class="information-header text-header">Location: <em>(Enter a location and see the weather data here)</em></p>
+            <p class="information-header text-header short-desc"></p>
           </div>
           <div class="information-body">
-            <p class="information-body text-body"></p>
+            <p class="information-body text-body temp"></p>
+            <p class="information-body text-body current-conditions"></p>
           </div>
           <div class="information-footer">
-            <p class="information-footer text-footer"></p>
+            <p class="information-footer text-footer time"></p>
+            <p class="information-footer text-footer time-zone"></p>
           </div>
         </div>
       </main>

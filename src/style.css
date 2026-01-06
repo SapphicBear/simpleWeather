@@ -7,11 +7,13 @@
   --sec-text-dark: rgb(88, 0, 53);
   --sec-text-light: rgb(255, 43, 202);
   --default-white: rgb(243, 246, 255);
+  --default-white-transparent: rgba(243, 246, 255, 0.5);
   --highlight: rgb(255, 177, 88);
   --border-radius: 15px;
   --border-size: 2.5px;
   --box-shadow: 0 10px 10px;
   --box-highlight: 10px 0 10px;
+  --transparent-glass: rgba(255, 255, 255, 0.8);
 }
 /* resets: */
 body,
@@ -50,30 +52,130 @@ form {
 
 body {
   /* background gradient */
-  background: #3bb3e3;
-  background: linear-gradient(179deg,rgba(59, 179, 227, 1) 0%, rgba(87, 199, 133, 1) 56%, rgba(237, 221, 83, 1) 100%);
+  
+  /* background: radial-gradient(circle,rgba(238, 174, 206, 1) 0%, rgba(148, 187, 233, 1) 100%); */
+  background:white;
+  transition: background 1s;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100dvh;
+    body[class="day"] {
+      background: linear-gradient(179deg,rgba(59, 179, 227, 1) 0%, rgba(87, 199, 133, 1) 56%, rgba(237, 221, 83, 1) 100%);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+}
+body.night {
+  background: darkred;
+  transition-property: background;
+  transition-duration: 1s;
 }
 
 .wrapper {
   padding: 2rem;
   display: grid;
   gap: 2rem;
-  background: white;
+  padding-top:10rem;
 }
+
 header, main, footer {
+  background: rgba(255, 255, 255, 0.23);
+  backdrop-filter: blur(4.2px);
   place-self: center;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: var(--border-radius);
-  width: 20rem;
-  background: var(--main-text-light);
+  width: 25rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   max-width: 60ch;
-  text-shadow: var(--sec-text-dark) 0 2px 2px;
+  text-shadow: black 1px 1px 10px;
   color: var(--default-white);
-  box-shadow: var(--box-shadow) var(--sec-text-dark);
+  border: var(--default-white-transparent) 2px solid;
+  box-shadow: 0 0.4rem, 30px rgba(0, 0, 0, 0.5); 
+}
+footer {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  > ul {
+    display: flex;
+    gap: 1rem;
+  }
+}
+input {
+      font-size: 14px;
+      height: 1.8rem;
+      padding: 0.4rem;
+      border-radius: var(--border-radius);
+      box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px;
+      border: none;
+      outline: none;
+}
+button {
+  font-size: 14px;
+  padding: 0.4rem;
+  border-radius: var(--border-radius);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.8);
+  border-top: rgba(255, 255, 255, 0.6) 1px solid;
+  border-bottom: rgba(0, 0, 0, 0.6) 1px solid;
+  backdrop-filter: blur(4.2px);
+    &:hover {
+      background: rgba(240, 220, 240, 0.8)
+    }
+    &:active {
+      background: rgba(190, 220, 240, 0.97);
+      box-shadow: inset rgba(0, 0, 0, 0.4) 0 1px 5px;
+    }
+}
+.search-area {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: space-around;
+}
+.information {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  justify-content: space-between;
+}
+.temp-unit-switch {
+  width: 80px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  place-self: start;
+  grid-row: 1;
+}
+.switch {
+  background: var(--transparent-glass);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px;
+  width: 50px;
+  height: 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+    &::before {
+      position: absolute;
+      content: "";
+      background: rgb(90, 90, 141);
+      height: 20px;
+      width: 20px;
+      border-radius: 200px;
+      margin: 1.58px;
+      transition: 0.2s;
+    }
+}
+input[type="checkbox"] {
+  display: none;
+}
+input:checked + .switch::before {
+  transform: translateX(26px);
 }
