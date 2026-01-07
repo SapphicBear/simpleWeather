@@ -18,7 +18,8 @@ export const getData = {
         return unit;
     },
     
-    dataHandler() {
+    dataHandler(DOM) {
+        DOM.header.textContent = "Loading..."
         const value = this.userInput();
         const unit = this.getTemp();
         const formatedInput = this.formatInput(value);

@@ -24,8 +24,10 @@ function getTime(data) {
     return currentTimeZoned;
 }
 
+
 DOM.searchButton.addEventListener("click", () => {
-    getData.dataHandler()
+    render.clearDOM(DOM);
+    getData.dataHandler(DOM)
         .then((data) => {
             console.log(data)
             render.samplePrint(data, DOM, convertUnit(), getTime(data));

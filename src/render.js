@@ -29,5 +29,13 @@ export const render = {
         } catch {
             DOM.body.className = "";
         }   
+    },
+    clearDOM(DOM) {
+        DOM.header.textContent = "";
+        DOM.headerShort.textContent = "";
+        DOM.bodyTemp.textContent = "";
+        DOM.bodyCurrentCon.textContent = "";
+        DOM.footerTime.textContent = "";
+        DOM.footerTimeZone.textContent = "";
     }
 };
