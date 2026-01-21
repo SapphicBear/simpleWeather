@@ -79,11 +79,12 @@ a:visited {
 
 body {
   /* background gradient */
-  background: linear-gradient(184deg,rgba(238, 174, 206, 1) 0%, rgba(148, 187, 233, 1) 100%); 
+  background: linear-gradient(184deg,rgb(212, 134, 173) 0%, rgb(128, 174, 226) 100%); 
   transition-duration: 1s;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: min(100dvh, 150dvh);
+
 }
 body.day {
   backdrop-filter: hue-rotate(290deg) brightness(0.87) contrast(130%);
@@ -128,16 +129,20 @@ footer {
   }
 }
 input {
-      font-size: 14px;
+      font-size: 15px;
       height: 1.8rem;
       padding: 0.4rem;
       border-radius: var(--border-radius);
       color: rgb(255, 255, 255);
       text-shadow: rgba(41, 41, 41, 0.493) 2px 2px 3px;
       box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px;
-      background: rgba(241, 241, 241, 0.137);
+      background: rgba(190, 190, 190, 0.192);
       border: rgba(255, 255, 255, 0.281) 2px solid;
       outline: none;
+      transition-duration: 250ms;
+      &:focus {
+        background: rgba(190, 120, 255, 0.26);
+      }
 }
 button {
   font-size: 14px;
@@ -204,4 +209,10 @@ input[type="checkbox"] {
 }
 input:checked + .switch::before {
   transform: translateX(26px);
+}
+h1, header, main, footer {
+  transition-duration: 250ms;
+  &:hover {
+        background: rgba(211, 115, 255, 0.384);
+      }
 }

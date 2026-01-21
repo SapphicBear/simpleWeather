@@ -5,7 +5,6 @@ import { render } from "./render.js";
 import { format } from "date-fns";
 import { TZDate } from "@date-fns/tz";
 
-console.log("Javascript connected from Index.js");
 
 let DOM = cacheDOM();
 function convertUnit() {
@@ -29,11 +28,9 @@ DOM.searchButton.addEventListener("click", () => {
     render.clearDOM(DOM);
     getData.dataHandler(DOM)
         .then((data) => {
-            console.log(data)
             render.samplePrint(data, DOM, convertUnit(), getTime(data));
             render.handleBackground(data, DOM);
         }).catch((error) => {
-            console.log(error);
             render.printError(error, DOM);
             render.handleBackground(error, DOM);
         })
