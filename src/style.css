@@ -274,5 +274,34 @@ h1, header, main, footer {
   footer {
     font-size: 1rem;
   }
+}
 
+@media (max-width: 380px) {
+  body {
+    max-width: 100vh;
+    min-height: 139vh;
+  }
+   header, main, footer, h1 {
+    width: 20rem;
+    padding: 1rem;
+  }
+  header, main, footer {
+    font-size: 1rem;
+  }
+  header {
+    .search-area {
+      gap: 0.4rem;
+    }
+    button {
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+    label {
+      font-size: 1rem;
+    }
+    input {
+      font-size: 1rem;
+      height: 2rem;
+    }
+  }
 }
