@@ -20,10 +20,10 @@ export const render = {
     handleBackground(data, DOM) {
         try {
             const time = data.currentConditions.datetime;
-            if (time > "18:00:00") {
+            if (time > "18:00:00" && time < "6:00:00") {
             DOM.body.className = "night";
             
-            } else if (time < "18:00:00") {
+            } else if (time < "18:00:00" && time > "6:00:00") {
                 DOM.body.className = "day";
             } 
         } catch {
