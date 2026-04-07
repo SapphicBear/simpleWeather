@@ -7,3 +7,5 @@ This is being made as part of the '[Odin Project](https://www.theodinproject.com
 *No AI was used in the creation of this application in any way, shape or form. AI is shit.*
 
 Svg used from [Font Awesome](https://fontawesome.com/icons/up-right-from-square?f=classic&s=solid "Font Awesome's website")!
+
+**[Check it out here!](https://sapphicbear.github.io/simpleWeather/)**
