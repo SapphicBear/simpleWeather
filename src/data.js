@@ -1,11 +1,12 @@
+import "dotenv/config";
 export const getData = {
     userInput() {
         let value = document.getElementById("search-bar").value;
         if (value.length <= 0) {
             value = "";
-            }
+        }
         return value;
-},
+    },
     getTemp() {
         const unitButton = document.getElementById("unit-choice");
         let units = ["uk", "us"];
@@ -17,9 +18,9 @@ export const getData = {
         }
         return unit;
     },
-    
+
     dataHandler(DOM) {
-        DOM.header.textContent = "Loading..."
+        DOM.header.textContent = "Loading...";
         const value = this.userInput();
         const unit = this.getTemp();
         const formatedInput = this.formatInput(value);
@@ -35,23 +36,23 @@ export const getData = {
     handleURL(input, temp) {
         let location = input;
         let temperatureUnit = temp;
-        let address = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${temperatureUnit}&key=GKAVBU9ZAHUA9UV25ESASX8UT&contentType=json`;
+        let address = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${temperatureUnit}&key=${process.env.API_KEY}&contentType=json`;
         return address;
     },
 
     async getWeatherData(address) {
         try {
             const response = await fetch(address);
-                if (!response.ok) {
-                    if (response.status == 400) {
-                        throw new Error(`Bad request: Status: ${response.status}`);
-                    } 
-                } else {
-                    const weatherData = await response.json();
-                    return weatherData;
+            if (!response.ok) {
+                if (response.status == 400) {
+                    throw new Error(`Bad request: Status: ${response.status}`);
                 }
+            } else {
+                const weatherData = await response.json();
+                return weatherData;
+            }
         } catch (error) {
             throw new Error(error.message);
         }
     },
-}
+};
