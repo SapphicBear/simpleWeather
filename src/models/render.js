@@ -1,4 +1,4 @@
-export default render = {
+export const render = {
     samplePrint(data, DOM, unit, time) {
         DOM.header.classList.remove("error");
         DOM.header.textContent = `Location: ${data.resolvedAddress}`;
@@ -38,4 +38,3 @@ export default render = {
         DOM.footerTimeZone.textContent = "";
     },
 };
-

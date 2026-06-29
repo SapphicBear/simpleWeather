@@ -1,4 +1,5 @@
-export default function cacheDOM() {
+export function cacheDOM() {
+    console.log("Hello????");
     const DOM = [
         document.querySelector(".search-button"),
         document.querySelectorAll(`.information > div > p[class*="text"]`),
@@ -31,4 +32,3 @@ export default function cacheDOM() {
         body,
     };
 }
-

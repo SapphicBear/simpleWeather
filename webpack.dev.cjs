@@ -3,6 +3,7 @@ const common = require("./webpack.common");
 
 module.exports = merge(common, {
     mode: "development",
+    dotenv: true,
     devtool: "eval-source-map",
     devServer: {
         watchFiles: ["./src/index.html"],

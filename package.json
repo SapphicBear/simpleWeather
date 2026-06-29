@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "@date-fns/tz": "^1.4.1",
-    "date-fns": "^4.1.0",
-    "dotenv": "^17.4.2"
+    "date-fns": "^4.1.0"
   }
 }

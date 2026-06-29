@@ -1,5 +1,4 @@
-import "dotenv/config";
-export default getData = {
+export const getData = {
     userInput() {
         let value = document.getElementById("search-bar").value;
         if (value.length <= 0) {
@@ -34,9 +33,10 @@ export default getData = {
     },
 
     handleURL(input, temp) {
+        let api_key = "GKAVBU9ZAHUA9UV25ESASX8UT";
         let location = input;
         let temperatureUnit = temp;
-        let address = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${temperatureUnit}&key=${process.env.API_KEY}&contentType=json`;
+        let address = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${temperatureUnit}&key=${api_key}&contentType=json`;
         return address;
     },
 
