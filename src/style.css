@@ -1,4 +1,4 @@
-:root {
+body {
     line-height: 1.5;
     font-family:
         "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
@@ -350,4 +350,3 @@ fieldset {
         }
     }
 }
-
