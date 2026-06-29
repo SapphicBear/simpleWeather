@@ -1,4 +1,4 @@
-export const render = {
+export default render = {
     samplePrint(data, DOM, unit, time) {
         DOM.header.classList.remove("error");
         DOM.header.textContent = `Location: ${data.resolvedAddress}`;
@@ -21,14 +21,13 @@ export const render = {
         try {
             const time = data.currentConditions.datetime;
             if (time > "18:00:00" || time < "06:00:00") {
-            DOM.body.className = "night";
-            
+                DOM.body.className = "night";
             } else if (time < "18:00:00" || time > "06:00:00") {
                 DOM.body.className = "day";
-            } 
+            }
         } catch {
             DOM.body.className = "";
-        }   
+        }
     },
     clearDOM(DOM) {
         DOM.header.textContent = "";
@@ -37,5 +36,6 @@ export const render = {
         DOM.bodyCurrentCon.textContent = "";
         DOM.footerTime.textContent = "";
         DOM.footerTimeZone.textContent = "";
-    }
+    },
 };
+

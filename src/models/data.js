@@ -1,5 +1,5 @@
 import "dotenv/config";
-export const getData = {
+export default getData = {
     userInput() {
         let value = document.getElementById("search-bar").value;
         if (value.length <= 0) {
